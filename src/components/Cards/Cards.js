@@ -1,5 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardImgOverlay, CardText, CardTitle } from 'reactstrap';
+import styles from './Cards.module.scss';
+
 
 const Cards = ({results}) => {
   let display;
@@ -9,7 +11,7 @@ const Cards = ({results}) => {
       let {name, image, status, location, species} = result;
       return(
         <div key={result.id} className='col-4 mb-2 position-relative'>
-          <Card>
+          <Card className={`${styles.cards }`}>
             <CardImg src={image} className="imgs-fluid" alt={name}/>
             <CardBody>
                 <CardTitle className='fs-4 fw-bold'>{name}</CardTitle>
@@ -17,7 +19,21 @@ const Cards = ({results}) => {
                 <CardText className='fs-5'>{location.name}</CardText>
             </CardBody>
         </Card>
-        <div className='position-absolute badge bg-danger'>{status}</div>
+        {(function() {
+          if(status === "Dead"){
+            return(
+              <div className={`${styles.badge} position-absolute badge bg-danger`} >{status}</div>
+            );
+          } else if( status === "Alive"){
+            return(
+              <div className={`${styles.badge} position-absolute badge bg-success`} >{status}</div>
+            );
+          } else{
+            return(
+              <div className={`${styles.badge} position-absolute badge bg-secondary`} >{status}</div>
+            );
+          }
+        })()}
         </div>
       );
     });
