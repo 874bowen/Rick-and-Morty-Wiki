@@ -32,7 +32,7 @@ function App() {
           </div>
         </div>
       </div>
-      <Pagination setPageNumber={setPageNumber} />
+      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   );
 }

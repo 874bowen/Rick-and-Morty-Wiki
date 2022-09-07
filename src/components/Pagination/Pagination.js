@@ -1,11 +1,13 @@
 import React from 'react'
 import { Button } from 'reactstrap';
 
-const Pagination = ({ setPageNumber }) => {
+const Pagination = ({ pageNumber, setPageNumber }) => {
      let next = () => {
           setPageNumber(x => x+1);
      };
      let prev = () => {
+          // stop when the page number is set to 1
+          if(pageNumber === 1) return;
           setPageNumber(x => x-1);
      };
      return (
