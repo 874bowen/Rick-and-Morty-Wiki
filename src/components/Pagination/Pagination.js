@@ -1,20 +1,16 @@
-import React from 'react'
-import { Button } from 'reactstrap';
+import React from 'react';
+import ReactPaginate from 'react-paginate';
 
-const Pagination = ({ pageNumber, setPageNumber }) => {
-     let next = () => {
-          setPageNumber(x => x+1);
-     };
-     let prev = () => {
-          // stop when the page number is set to 1
-          if(pageNumber === 1) return;
-          setPageNumber(x => x-1);
-     };
+const Pagination = ({ info, pageNumber, setPageNumber }) => {
+     
      return (
-     <div className='container d-flex justify-content-center gap-5'>
-          <Button onClick={prev} className='btn btn-primary'>Prev</Button>
-          <Button onClick={next} className='btn btn-primary'>Next</Button>   
-     </div>
+          // because it is taking time add the ? 
+          // if info exists then add pages
+          <ReactPaginate 
+          className='pagination justify-content-center' nextLabel="Next" previousLabel="Prev"  
+          nextClassName="btn btn-primary"
+          previousClassName='btn btn-primary'
+          pageCount={info?.pages} />
      )
 }
 
