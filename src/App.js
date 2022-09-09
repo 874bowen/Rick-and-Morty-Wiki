@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap"
+import "bootstrap/dist/js/bootstrap";
 import Cards from "./components/Cards/Cards";
 import Filters from "./components/Filters/Filters";
 import Pagination from './components/Pagination/Pagination';
-import Search from './components/Search/Search';
+import Search from './components/search/search';
 
 function App() {
   let [pageNumber, setPageNumber] = useState(1); 
