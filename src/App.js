@@ -9,11 +9,14 @@ import Search from './components/Search/Search';
 function App() {
   let [pageNumber, setPageNumber] = useState(1); 
   let [search, setSearch] = useState("");
+  let [status, setStatus] = useState("");
+  let [species, setSpecies] = useState("");
+  let [gender, setGender] = useState("");
   let [fetchedData, updateFetchedData] = useState({});
   // destructuring which is same as fetchedData.rasults
   let {info, results} = fetchedData;
 
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
   useEffect(() => {
     (async function (){
@@ -27,7 +30,8 @@ function App() {
       <Search setPageNumber={setPageNumber} setSearch={setSearch} />
       <div className="container">
         <div className="row">
-            <Filters />
+            <Filters 
+            setStatus={setStatus} setSpecies={setSpecies} setGender={setGender} setPageNumber={setPageNumber} />
           <div className="col-8">
           <div className='row'>
             <Cards results={results} />
