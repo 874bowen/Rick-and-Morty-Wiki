@@ -4,9 +4,26 @@ import "bootstrap/dist/js/bootstrap";
 import Cards from "./components/Cards/Cards";
 import Filters from "./components/Filters/Filters";
 import Pagination from './components/Pagination/Pagination';
-import Search from './components/search/search';
+import Search from './components/Search/Search';
+import Navbar from './components/Navbar/Navbar';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Episodes from './components/Pages/Episodes';
+import Location from './components/Pages/Locations';
 
 function App() {
+  return(
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/episodes' element={<Episodes />} />
+        <Route path='/locations' element={<Location />} />
+      </Routes>
+    </Router>
+  );
+}
+
+const Home = () =>  {
   let [pageNumber, setPageNumber] = useState(1); 
   let [search, setSearch] = useState("");
   let [status, setStatus] = useState("");
@@ -26,7 +43,6 @@ function App() {
   }, [api]);
   return (
     <div className="App">
-      <h1 className="text-center my-2 ubuntu">Rick & Morty <span className="text-primary">Wiki</span></h1>
       <Search setPageNumber={setPageNumber} setSearch={setSearch} />
       <div className="container">
         <div className="row">
