@@ -11,7 +11,7 @@ const Cards = ({results, page}) => {
     display = results.map(result => {
       let {id, name, image, status, location} = result;
       return(
-        <Link style={{textDecoration: "none"}} to={`${page}${id}`} key={id} className='col-4 mb-2 position-relative text-dark'>
+        <Link style={{textDecoration: "none"}} to={`${page}${id}`} key={id} className='col-lg-4 col-md-6 col-12 mb-2 position-relative text-dark'>
           <Card className={`${styles.cards }`}>
             <CardImg src={image} className="imgs-fluid" alt={name}/>
             <CardBody>

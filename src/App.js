@@ -53,7 +53,7 @@ const Home = () =>  {
         <div className="row">
             <Filters 
             setStatus={setStatus} setSpecies={setSpecies} setGender={setGender} setPageNumber={setPageNumber} />
-          <div className="col-8">
+          <div className="col-lg-8 col-12">
           <div className='row'>
             <Cards page="/" results={results} />
           </div>
