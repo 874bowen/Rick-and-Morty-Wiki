@@ -9,6 +9,7 @@ import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Episodes from './components/Pages/Episodes';
 import Location from './components/Pages/Locations';
+import CardDetails from './components/Cards/CardDetails';
 
 function App() {
   return(
@@ -16,8 +17,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/:id' element={<CardDetails />} />
         <Route path='/episodes' element={<Episodes />} />
+        <Route path='/episodes/:id' element={<CardDetails />} />
         <Route path='/locations' element={<Location />} />
+        <Route path='/locations/:id' element={<CardDetails />} />
       </Routes>
     </Router>
   );
@@ -30,7 +34,7 @@ const Home = () =>  {
   let [species, setSpecies] = useState("");
   let [gender, setGender] = useState("");
   let [fetchedData, updateFetchedData] = useState({});
-  // destructuring which is same as fetchedData.rasults
+  // destructuring which is same as fetchedData.results
   let {info, results} = fetchedData;
 
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
@@ -43,6 +47,7 @@ const Home = () =>  {
   }, [api]);
   return (
     <div className="App">
+      <h1 className="text-center mb-3">Characters</h1>
       <Search setPageNumber={setPageNumber} setSearch={setSearch} />
       <div className="container">
         <div className="row">
@@ -50,7 +55,7 @@ const Home = () =>  {
             setStatus={setStatus} setSpecies={setSpecies} setGender={setGender} setPageNumber={setPageNumber} />
           <div className="col-8">
           <div className='row'>
-            <Cards results={results} />
+            <Cards page="/" results={results} />
           </div>
           </div>
         </div>
