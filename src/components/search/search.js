@@ -4,7 +4,7 @@ import styles from "./Search.module.scss";
 
 const Search = ({ setPageNumber, setSearch }) => {
   return (
-    <form className='d-flex justify-content-center gap-4 mb-3'>
+    <form className='d-flex flex-sm-row  flex-column align-items-center justify-content-center gap-4 mb-3'>
           <Input 
           onChange={(e)=>{
                // for search to begin from page number 1               
