@@ -1,16 +1,17 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardImgOverlay, CardText, CardTitle } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import styles from './Cards.module.scss';
 
 
-const Cards = ({results}) => {
+const Cards = ({results, page}) => {
   let display;
   console.log(results);
   if (results){
     display = results.map(result => {
-      let {name, image, status, location, species} = result;
+      let {id, name, image, status, location} = result;
       return(
-        <div key={result.id} className='col-4 mb-2 position-relative'>
+        <Link style={{textDecoration: "none"}} to={`${page}${id}`} key={id} className='col-4 mb-2 position-relative text-dark'>
           <Card className={`${styles.cards }`}>
             <CardImg src={image} className="imgs-fluid" alt={name}/>
             <CardBody>
@@ -34,7 +35,7 @@ const Cards = ({results}) => {
             );
           }
         })()}
-        </div>
+        </Link>
       );
     });
   } else {
