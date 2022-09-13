@@ -4,7 +4,7 @@ import "bootstrap/dist/js/bootstrap";
 import Cards from "./components/Cards/Cards";
 import Filters from "./components/Filters/Filters";
 import Pagination from './components/Pagination/Pagination';
-import Search from './components/Search/Search';
+import Search from './components/search/search';
 import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Episodes from './components/Pages/Episodes';
