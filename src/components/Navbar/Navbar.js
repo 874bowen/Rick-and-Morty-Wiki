@@ -10,18 +10,8 @@ const Navbar = () => {
      <div className='container'>
      <Link to="/" className="navbar-brand fs-2 fw-bold ubuntu">Rick & Morty <span className="text-primary">Wiki</span></Link>
      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <style jsx="true">
-          {`
-          button[aria-expanded="false"] > .close {
-            dispay: none;
-          }
-          button[aria-expanded="true"] > .open {
-            dispay: none;
-          }
-          `}
-        </style>
+  
        <i className='fas fa-bars fw-bold text-dark open'></i>
-       <i className='fas fa-times fw-bold text-dark close'></i>
      </button>
      <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
        <div className="navbar-nav fs-5">
